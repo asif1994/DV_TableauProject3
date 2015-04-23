@@ -1,16 +1,16 @@
-setwd("C:/Users/asif/Documents/GitHub/DataVisualization/DV_TableauProject2/00 Doc")
+setwd("C:/DataVisualization/DV_TableauProject3/00 Doc")
 # file_path <- "Sample - Superstore - English (Extract).csv"
 # measures <- c("Customer_ID", "Discount", "Number_of_Records", "Order_ID", "Order_Quantity", "Product_Base_Margin", "Profit", "Sales", "Shipping_Cost", "Unit_Price" )
 
-file_path <- "April16th.csv"
-measures <- c("Customer_ID", "Order_ID", "Postal_Code", "Row_ID", "Number_of_Records", "Order_Quantity")
+file_path <- "tobaccousage.csv"
+measures <- c("Order, State", "X12_or_Older_Estimate", "X12_or_Older_95_CI_Lower", "12_or_Older_95_CI_Upper_X12_17_Estimate", "X12_17_95_CI_Lower", "X12_17_95_CI_Upper", "X18_25_Estimate", "X18_25_95_CI_Lower", "X18_25_95_CI_Upper", "X26_or_Older_Estimate", "X26_or_Older_95_CI_Lower", "X26_or_Older_95_CI_Upper")
 
 df <- read.csv(file_path, stringsAsFactors = FALSE)
 
 # Replace "." (i.e., period) with "_" in the column names.
 names(df) <- gsub("\\.+", "_", names(df))
 
-## str(df) # Uncomment this to get column types to use for getting the list of measures.
+str(df) # Uncomment this to get column types to use for getting the list of measures.
 
 # Get rid of special characters in each column.
 # Google ASCII Table to understand the following:
@@ -31,8 +31,8 @@ for(d in dimensions) {
 library(lubridate)
 # Fix date columns, this needs to be done by hand because | needs to be correct.
 #                                                        \_/
-df$Order_Date <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Order_Date), tz="UTC")))
-df$Ship_Date  <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Ship_Date),  tz="UTC")))
+#df$Order_Date <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Order_Date), tz="UTC")))
+#df$Ship_Date  <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Ship_Date),  tz="UTC")))
 
 # The following is an example of dealing with special cases like making state abbreviations be all upper case.
 # df["State"] <- data.frame(lapply(df["State"], toupper))
@@ -55,3 +55,4 @@ for(m in measures) {
 }
 sql <- paste(sql, ");")
 cat(sql)
+
