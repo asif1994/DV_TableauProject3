@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Step 1</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<!-- rmarkdown v1 -->
+
+<p># Project 7</p>
+
+<p>### Created by Asif Chowdhury, Justin Owens, Jash Choraria</p>
+
+<p>his is the seventh project for CS 329E Data Visualization. 
+The data we will analyze comes from the Center for Medicare and Medicaid Services website. 
+The goals for this project is to successfully use the blend function on Tableau to blend two data sets and create interesting visualizations. The data sets we have chose are tobacco usage in different states and medicaid payments across states.</p>
+
+<p>In order to reproduce this project, please follow the following instructions.</p>
+
+<h2>Step 1</h2>
+
+<h4>Load the correct packages into R</h4>
+
+<p>Use the following code to load the correct packages into RStudio.
+It might be necessary to install them manually if they have never been installed on your machince prior to this experience.</p>
+
+<pre><code class="r">source(&quot;../00 Doc/Packages.R&quot;, echo = TRUE)
+</code></pre>
+
+<pre><code>## 
+## &gt; require(plyr)
+## 
+## &gt; require(dplyr)
+## 
+## &gt; require(ggplot2)
+## 
+## &gt; require(knitr)
+## 
+## &gt; require(reshape2)
+## 
+## &gt; require(RCurl)
+## 
+## &gt; require(grid)
+## 
+## &gt; require(plyr)
+## 
+## &gt; require(gplots)
+## 
+## &gt; require(tidyr)
+## 
+## &gt; require(jsonlite)
+## 
+## &gt; require(ggthemes)
+</code></pre>
+
+<h2>Step 2</h2>
+
+<h4>Clean up the CSV file</h4>
+
+<p>Sometimes, the data in a CSV file is incompatible with Oracle. In this situation, we would want to clean up the data. 
+Make sure the CSV file is in the appropriate place, as defined by the following code, and modify the working directory in line 1 for your machine. Then run the code in order to get rid of special characters and set data types that are compatible with Oracle. 
+You should now have a new CSV File with the reformatted data. </p>
+
+<p>Due to the complexity in calling directories, we will display the code here, but not run it. This HTML is not dependent on the modified CSV, but if you would like to reproduce our modified CSV, follow the code found in the ReformattingData.R file in the 00 Doc folder or it&#39;s representation here.</p>
+
+<pre><code class="r">setwd(**PLACE WORKING DIRECTORY PATH FOR 00 DOC FOLDER HERE**)
+
+getfile_path &lt;- &quot;tobaccousage.csv&quot;
+measures &lt;- c(&quot;Order, State&quot;, &quot;X12_or_Older_Estimate&quot;, &quot;X12_or_Older_95_CI_Lower&quot;, &quot;12_or_Older_95_CI_Upper_X12_17_Estimate&quot;, &quot;X12_17_95_CI_Lower&quot;, &quot;X12_17_95_CI_Upper&quot;, &quot;X18_25_Estimate&quot;, &quot;X18_25_95_CI_Lower&quot;, &quot;X18_25_95_CI_Upper&quot;, &quot;X26_or_Older_Estimate&quot;, &quot;X26_or_Older_95_CI_Lower&quot;, &quot;X26_or_Older_95_CI_Upper&quot;)
+
+df &lt;- read.csv(file_path, stringsAsFactors = FALSE)
+
+names(df) &lt;- gsub(&quot;\\.+&quot;, &quot;_&quot;, names(df))
+
+# Get rid of special characters in each column.
+for(n in names(df)) {
+df[n] &lt;- data.frame(lapply(df[n], gsub, pattern=&quot;[^ -~]&quot;,replacement= &quot;&quot;))
+}
+
+dimensions &lt;- setdiff(names(df), measures)
+for(d in dimensions) {
+# Get rid of &quot; and &#39; in dimensions.
+df[d] &lt;- data.frame(lapply(df[d], gsub, pattern=&quot;[\&quot;&#39;]&quot;,replacement= &quot;&quot;))
+# Change &amp; to and in dimensions.
+df[d] &lt;- data.frame(lapply(df[d], gsub, pattern=&quot;&amp;&quot;,replacement= &quot; and &quot;))
+# Change : to ; in dimensions.
+df[d] &lt;- data.frame(lapply(df[d], gsub, pattern=&quot;:&quot;,replacement= &quot;;&quot;))
+}
+
+library(lubridate)
+
+# The following is an example of dealing with special cases like making state abbreviations be all upper case.
+# df[&quot;State&quot;] &lt;- data.frame(lapply(df[&quot;State&quot;], toupper))
+
+# Get rid of all characters in measures except for numbers, the - sign, and period.
+for(m in measures) {
+  df[m] &lt;- data.frame(lapply(df[m], gsub, pattern=&quot;[^--.,0-9]&quot;,replacement= &quot;&quot;))
+}
+
+write.csv(df, paste(gsub(&quot;.csv&quot;, &quot;&quot;, file_path), &quot;.reformatted.csv&quot;, sep=&quot;&quot;), row.names=FALSE)
+
+tableName &lt;- gsub(&quot; +&quot;, &quot;_&quot;, gsub(&quot;[^A-z, 0-9, ]&quot;, &quot;&quot;, gsub(&quot;.csv&quot;, &quot;&quot;, file_path)))
+sql &lt;- paste(&quot;CREATE TABLE&quot;, tableName, &quot;(\n-- Change table_name to the table name you want.\n&quot;)
+for(d in dimensions) {
+  sql &lt;- paste(sql, paste(d, &quot;varchar2(4000),\n&quot;))
+}
+for(m in measures) {
+  if(m != tail(measures, n=1)) sql &lt;- paste(sql, paste(m, &quot;number(38,4),\n&quot;))
+  else sql &lt;- paste(sql, paste(m, &quot;number(38,4)\n&quot;))
+}
+sql &lt;- paste(sql, &quot;);&quot;)
+cat(sql)
+</code></pre>
+
+<h2>Step 3</h2>
+
+<h4>Import and retrieve the data from the Oracle cloud server.</h4>
+
+<p>After cleaning up the data, it should be fairly simple to import the table into the Oracle cloud. After doing so, use the following code to create a data frame in R using the newly imported SQL table. This will be useful mostly for when we start using Tableau to create crosstabs.</p>
+
+<p>The tobaccousage.csv data frame has the following 12 columns: &ldquo;Order, State&rdquo;, &ldquo;X12_or_Older_Estimate&rdquo;, &ldquo;X12_or_Older_95_CI_Lower&rdquo;, &ldquo;12_or_Older_95_CI_Upper_X12_17_Estimate&rdquo;, &ldquo;X12_17_95_CI_Lower&rdquo;, &ldquo;X12_17_95_CI_Upper&rdquo;, &ldquo;X18_25_Estimate&rdquo;, &ldquo;X18_25_95_CI_Lower&rdquo;, &ldquo;X18_25_95_CI_Upper&rdquo;, &ldquo;X26_or_Older_Estimate&rdquo;, &ldquo;X26_or_Older_95_CI_Lower&rdquo;, &ldquo;X26_or_Older_95_CI_Upper&rdquo;</p>
+
+<pre><code class="r">source(&quot;../00 Doc/FED_CON_ZIPCODE.R&quot;, echo = TRUE)
+</code></pre>
+
+<pre><code>## 
+## &gt; FED_CON_ZIPCODE &lt;- data.frame(fromJSON(getURL(URLencode(&quot;129.152.144.84:5001/rest/native/?query=\&quot;select * from FED_CON_ZIPCODE\&quot;&quot;), 
+## +     httphead .... [TRUNCATED] 
+## 
+## &gt; head(FED_CON_ZIPCODE)
+##          ID ZIPCODE GENDER AMOUNT AVERAGEINCOME AVERAGEWAGES AVERAGETAXES
+## 1 218639382   78209      N   1000     351933606    159713750     11749179
+## 2 218639385   78212      U   1000     154787985     67019780      3694433
+## 3 218639386   78209      M    250     351933606    159713750     11749179
+## 4 218639387   78212      M    500     154787985     67019780      3694433
+## 5 218639388   78230      F   1000     211789256    130087792      6535803
+## 6 218639389   78255      M    500      54910212     40989637      2563669
+##   AVERAGEINCOMETAX
+## 1         68177172
+## 2         29441626
+## 3         68177172
+## 4         29441626
+## 5         35654807
+## 6          8223123
+</code></pre>
+
+<h2>Step 4</h2>
+
+<h4>Import Data for Tableau Blending.</h4>
+
+<p>To blend the data sets, we must first import the data to tableau. 
+First, we need to either import the reformatted CSV file directly into Oracle (easiest), or pull the information from the cloud.</p>
+
+<p>In order to import the CSV file, follow these steps:  </p>
+
+<p>1) Open Tableau.</p>
+
+<p>2) Click &ldquo;Connect Data&rdquo; on the top left corner and then Connect to &ldquo;Text File&rdquo; underneath the Connect heading on the left side of the screen.</p>
+
+<p><img src="../02 Tableau Workbook/ConnectText.PNG" alt="This is the link you need to click."/></p>
+
+<p>3) On the screen that appears, locate the reformatted CSV file from Step 2. For this project, the file should be in the 00 Doc folder.</p>
+
+<p>4) On the following screen, click the tab at the bottom left of the screen that says &ldquo;Sheet 1&rdquo;. This will take you to the main workbook.</p>
+
+<p><img src="../02 Tableau Workbook/Sheet1.PNG" alt="This is the tab you need to click."/></p>
+
+<p>Alternatively, you can retrieve the table from the cloud:</p>
+
+<p>1) Open Tableau.</p>
+
+<p>2) Click &ldquo;Connect Data&rdquo; on the top left corner and then Connect to &ldquo;Oracle&rdquo; underneath the Connect heading on the left side of the screen.</p>
+
+<p><img src="../02 Tableau Workbook/ConnectOracle.PNG" alt="This is the link you need to click."/></p>
+
+<p>3) In the screen that appears, enter the required information. For our project, the information is:</p>
+
+<p>Server: 129.152.144.84</p>
+
+<p>Service: ORCL.usuniversi01134.oraclecloud.internal</p>
+
+<p>Port: 1521</p>
+
+<p>Username: C##cs329e_ac52722</p>
+
+<p>Password: orcl_ac52722</p>
+
+<p>4) On the following screen, click the tab at the bottom left of the screen that says &ldquo;Sheet 1&rdquo;. This will take you to the main workbook.</p>
+
+<p><img src="../02 Tableau Workbook/Sheet1.PNG" alt="This is the tab you need to click."/></p>
+
+<h2>Step 5</h2>
+
+<p>####Blend the two data sets on Tableau.</p>
+
+<p>Now that the data is uploaded into the oracle cloud properly, we can now start &#39;blending&#39; the two data sets on Tableau. 
+To blend the two data sets, we connected the two sources of data using an inner join as shown below, where in we joint based on the states. </p>
+
+<p>The visual representations created from this are shown in step 5.</p>
+
+<p>IMAGE OF BELNDING (BLENDING.PNG) comes her e</p>
+
+<p>##Step 6</p>
+
+<h4>Differnt sybmol maps and tables can be created using the Tableau tools available</h4>
+
+<p>Since the data was blended according to state, it is most advisable to use symbol maps to help show the distinction in states and the different in tobacco usage, medicaid payments, discharges and covered costs across the different states. The maps can be recreated by dragging the correct Dimensions and Measures to the proper places as decribed in the following pictures of the completed visualizations. In all the symbol maps it is important to keep Longitude as Columns and Latitudes as Row.</p>
+
+<p>For each visualization, be sure to click on the new sheet button so that you can save each of them.</p>
+
+<p>The description of the visualzation is below its respective picture along with an explanation on how to create it.</p>
+
+<p><strong>Average Covered Charges vs. State:</strong></p>
+
+<p>!AVG COVERED CHARGES VS STATE PICTURE GOES HERE</p>
+
+<p>This visualizations shows how the average amount of charges covered by the insurance company in that state.</p>
+
+<p>To recreate the above visualization, drag stateabbrev (from the dimension list) over the COLOR mark. Then drag Total Covered Charges (from the measures list) over the SIZE mark and LABEL mark. Ensure the change the measure of Total Covered Charges from SUM to AVG to ensure the average is provided. </p>
+
+<p>From the visual map that shows the average amounts paid by the insurance companies in Alaska, California and Delaware, the highest insurance coverage is in California (at $67,509) while Delaware is almost $40,000 less than California. Alaska falls in between California and Delaware with $40,349.</p>
+
+<p><strong>Average Total Payments vs. State:</strong></p>
+
+<p>!AVG TOTAL PAYMENT VS STATE PICTURE GOES HERE</p>
+
+<p>This visualizations shows how the average amount of total payments made by each patient across that state.
+To recreate the above visualization, drag stateabbrev (from the dimension list) over the COLOR mark. Then drag Total Payments (from the Measures list) over the SIZE mark and LABEL mark. Ensure the change the measure of Total Payments from SUM to AVG to ensure the average is provided. </p>
+
+<p>Analyzing the above visual representation of the average total payment made by patients across the state, it is suprising to see that there is a far smaller gap between the highest average total payments (Alaska at $14,572) and the lowest (Delaware ate $10,360). What is interesting to note is that Alaska has far lower covered charges compared to California however, California residents pay lesser than those in Alaska.</p>
+
+<p><strong>Average Discharge vs. State:</strong></p>
+
+<p>!AVG DISCHARGE VS STATE PICTURE GOES HERE</p>
+
+<p>This visualizations shows how the average discharge across the states.</p>
+
+<p>To recreate the above visualization, drag stateabbrev (from the dimension list) over the COLOR mark. Then drag Total Discharges (from the Measures list) over the SIZE mark and LABEL mark. Ensure the change the measure of Total Discharges from SUM to AVG to ensure the average is provided.</p>
+
+<p>Needs analysis</p>
+
+<p><strong>Average Medicare Payments vs. State:</strong></p>
+
+<p>! AVG MEDICARE PAYMENTS VS STATE PICTURE GOES HERE</p>
+
+<p>This visualizations shows how the average medicare payments made by the government across the sates.</p>
+
+<p>To recreate the above visualization, drag stateabbrev (from the dimension list) over the COLOR mark. Then drag Total Medicare Payments (from the Measures list) over the SIZE mark and LABEL mark. Ensure the change the measure of Total Medicare Payments from SUM to AVG to ensure the average is provided.</p>
+
+<p>This important visualizations shows how much the government contributes from their medicare plan towards providing health insurance to its citizens. It is interesting to see how this varies across the 3 states. The highest medicare payments are made out to those in Alaska. This could be attributed to their small per capita population hence making it easier to pay out larger amounts across the state. On average, eack California citizen received around a $1,000 less in Medicare payments. Delaware is a distant third at $,8,960. From these visualizations we can see that Delaware receives far smaller amounts in medicare payments and covered costs. However, they also have the lowest amount of average total payments between the three states.</p>
+
+<p>The below visualization shows a comparison of all these four averages on one Tableau worksheet.</p>
+
+<p>! COMPARING AK, CA, DE goes here</p>
+
+<p><strong>All Payments vs State:</strong>
+  ! PAYMENTS VS STATES PNG GOES HERE</p>
+
+<p>This bar graph visualzation shows how different states measure up on different aspects of health insurance payments discussed above (Covered Charges, Medicare Payments, Discharges and Patient Payments.</p>
+
+<p>To create the above visualization first drag State and Stateabbrev into the Columns tab as shone above. Then drag, from the Measures, Total Covered Charges, Total Medicare Payments, Total Payments and Total Discharges to the Rows Tab. Ensure that you changes the Measure from SUM to AVG to obtain the average amounts of these payments across the states. Drag Provider State over the COLOR mark. Also add Provider State into the Filters.                                                                                                                                     </p>
+
+<p>Looking at the observed states and analyzing their payments towards healthcare, one can see that California has the one higest averages for all four payments. Only Hawaii has a higher average medicare payment and only Florida has higer discharges. Americans in Alabama have the least burden on their pockets as Alabama has the lowest average patient contributions. New York, on the other hand, has high patient and medicare contributions but relatively low insurance coverage. New Jersey has the second highest insurance coverage, just behind California. Texas falls in the middle of this selection across all four forms of payments. However, it does have the second highest average discharges.</p>
+
+</body>
+
+</html>
+
